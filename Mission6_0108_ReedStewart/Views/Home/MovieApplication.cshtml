@@ -1,0 +1,58 @@
+﻿@model Application
+
+<!--This view is for users to submit movie review data to the database.-->
+<h1>Please add the following information about your movie:</h1>
+<br />
+<form class="review-form" method="post">
+
+    <div class="form-group">
+        <label asp-for="Category">Category</label>
+        <input asp-for="Category" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Year">Year</label>
+        <input asp-for="Year" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Director">Director</label>
+        <input asp-for="Director" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Rating">Rating</label>
+        <select asp-for="Rating" class="form-control">
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Edited">Edited</label>
+        <select asp-for="Edited" class="form-control">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LentTo">Lent To</label>
+        <input asp-for="LentTo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Notes">Notes (25 character limit)</label>
+        <input asp-for="Notes" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Movie Review</button>
+
+</form>
