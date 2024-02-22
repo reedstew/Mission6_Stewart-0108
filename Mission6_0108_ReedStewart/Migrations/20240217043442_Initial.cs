@@ -22,8 +22,8 @@ namespace Mission6_0108_ReedStewart.Migrations
                     Director = table.Column<string>(type: "TEXT", nullable: false),
                     Rating = table.Column<string>(type: "TEXT", nullable: false),
                     Edited = table.Column<bool>(type: "INTEGER", nullable: false),
-                    LentTo = table.Column<string>(type: "TEXT", nullable: true), // This will set the lentto to be able to be null
-                    Notes = table.Column<string>(type: "TEXT", maxLength: 25, nullable: true)
+                    LentTo = table.Column<string>(type: "TEXT", nullable: false),
+                    Notes = table.Column<string>(type: "TEXT", maxLength: 25, nullable: false)
                 },
                 constraints: table =>
                 {
