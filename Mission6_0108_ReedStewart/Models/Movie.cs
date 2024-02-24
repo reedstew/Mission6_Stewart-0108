@@ -12,7 +12,7 @@ namespace Mission6_0108_ReedStewart.Models
         public Category? Category { get; set; }
         [Required(ErrorMessage = "Title is Required")]
         public required string Title {  get; set; }
-        [Range(1888, int.MaxValue, ErrorMessage = "You must enter a year above 1888")]
+        [Range(1888, int.MaxValue, ErrorMessage = "You must enter a year above 1888")] // Range applied to year
         public required int Year { get; set; }
         public string? Director {  get; set; }
         public string? Rating {  get; set; }

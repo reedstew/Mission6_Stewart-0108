@@ -53,7 +53,7 @@ namespace Mission6_0108_ReedStewart.Controllers
         }
 
         [HttpGet]
-        public IActionResult MovieList()
+        public IActionResult MovieList() // View the movies in the database
         {
             var movies = _context.Movies
                 .Include(m => m.Category)
@@ -63,7 +63,7 @@ namespace Mission6_0108_ReedStewart.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int id) // Edit a movie review
         {
             var recordToEdit = _context.Movies
                 .Single(x => x.MovieId == id);
@@ -75,7 +75,7 @@ namespace Mission6_0108_ReedStewart.Controllers
             return View("MovieApplication", recordToEdit);
         }
         [HttpPost]
-        public IActionResult Edit(Movie m)
+        public IActionResult Edit(Movie m) // submit a movie edit
         {
             _context.Update(m);
             _context.SaveChanges();
@@ -83,7 +83,7 @@ namespace Mission6_0108_ReedStewart.Controllers
             return RedirectToAction("MovieList");
         }
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int id) // delete a movie revie
         {
             var recordToDelete = _context.Movies
                 .Single(x => x.MovieId == id);
@@ -91,7 +91,7 @@ namespace Mission6_0108_ReedStewart.Controllers
             return View(recordToDelete);
         }
         [HttpPost]
-        public IActionResult Delete(Movie m)
+        public IActionResult Delete(Movie m) // confirm deletion
         {
             _context.Movies.Remove(m);
             _context.SaveChanges();
