@@ -58,7 +58,8 @@ section {
 }
 
 .yup:hover {
-    text-decoration:unset;
+    text-decoration: none;
+    font-weight:bold;
 }
 
 .title {

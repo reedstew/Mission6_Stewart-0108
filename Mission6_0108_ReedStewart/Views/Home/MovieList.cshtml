@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Movie>
+
+<h1 class="display-4 text-center mt-5">See Movies Below</h1>
+
+<table class="table table-bordered table-hover mt-4">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Category</th>
+            <th scope="col">Title</th>
+            <th scope="col">Year</th>
+            <th scope="col">Director</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Edited</th>
+            <th scope="col">Lent To</th>
+            <th scope="col">Copied To Plex</th>
+            <th scope="col">Notes</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+
+    @foreach (var x in Model)
+    {
+    <tbody>
+        <tr>
+            <td>@x.Category?.CategoryName</td>
+            <td>@x.Title</td>
+            <td>@x.Year</td>
+            <td>@x.Director</td>
+            <td>@x.Rating</td>
+            <td>@x.Edited</td>
+            <td>@x.LentTo</td>
+            <td>@x.CopiedToPlex</td>
+            <td>@x.Notes</td>
+
+            <!--Buttons for updating and deleting information in database-->
+            <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieId">Edit</a></td>
+            <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieId">Delete</a></td>
+        </tr>
+    </tbody>
+    }
+</table>

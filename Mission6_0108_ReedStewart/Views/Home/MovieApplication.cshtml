@@ -1,4 +1,4 @@
-﻿@model Application
+﻿@model Movie
 
 <!--This view is for users to submit movie review data to the database.-->
 <h1>Please add the following information about your movie:</h1>
@@ -6,8 +6,16 @@
 <form class="review-form" method="post">
 
     <div class="form-group">
-        <label asp-for="Category">Category</label>
-        <input asp-for="Category" class="form-control" />
+        <input asp-for="MovieId" type="hidden"/>
+        <label asp-for="CategoryId">Category</label>
+        <br />
+        <select asp-for="CategoryId">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select>
     </div>
 
     <div class="form-group">
@@ -38,8 +46,8 @@
     <div class="form-group">
         <label asp-for="Edited">Edited</label>
         <select asp-for="Edited" class="form-control">
-            <option value="true">Yes</option>
-            <option value="false">No</option>
+            <option value=1>Yes</option>
+            <option value=0>No</option>
         </select>
     </div>
 
@@ -48,11 +56,21 @@
         <input asp-for="LentTo" class="form-control" />
     </div>
 
+    <div>
+        <label asp-for="CopiedToPlex">Copied to Plex</label>
+        <select asp-for="CopiedToPlex" class="form-control">
+            <option value=1>Yes</option>
+            <option value=0>No</option>
+        </select>
+    </div>
+
     <div class="form-group">
         <label asp-for="Notes">Notes (25 character limit)</label>
         <input asp-for="Notes" class="form-control" />
     </div>
 
     <button type="submit" class="btn btn-primary">Submit Movie Review</button>
+
+    <div asp-validation-summary="All"></div>
 
 </form>
